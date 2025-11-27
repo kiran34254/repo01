@@ -1,0 +1,104 @@
+    1  ls
+    2  vi pop.sh
+    3  chmod +x pop.sh
+    4  ./pop.sh
+    5  $?
+    6  echo $?
+    7  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443 
+    8  ssh lab@utility 
+    9  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443 
+   10  ssh lab@utility 
+   11  oc login -u developer -p developer https://api.ocp4.example.com:6443 
+   12  oc whoami 
+   13  oc new-project ex280-q1 
+   14  oc project -q 
+   15  oc new-project ex288-q1 
+   16  oc delete project ex280-q1 
+   17  oc project -q 
+   18  oc get pods 
+   19  oc get svc 
+   20  oc get deployment 
+   21  oc get dc
+   22  oc get bc 
+   23  oc get is 
+   24  oc whoami --show-console 
+   25  mkdir work 
+   26  cd work/
+   27  pwd
+   28  ll
+   29  mkdir app-ex2888-q1 
+   30  mkdir app-ex2888-q2
+   31  mkdir app-ex2888-q3
+   32  l
+   33  lll
+   34  ll
+   35  pwd
+   36  ll
+   37  rm -rf * 
+   38  ll
+   39  oc project -q 
+   40  oc get all
+   41  #oc new-app --name greet --build-env npm_config_registry=http://nexus-common.apps.na410.prod.nextcle.com/repository/nodejs nodejs:16-ubi8
+   42  oc get is -n openshift | grep nodes 
+   43  oc get is -n openshift | grep node
+   44  oc get istag -n openshift | grep node
+   45  oc new-app --name greet --build-env npm_config_registry=http://nexus-common.apps.na410.prod.nextcle.com/repository/nodejs nodejs:16-ubi8~https://github.com/cprakash2118/repo01.git
+   46  oc get pods 
+   47  oc get bc
+   48  oc logs -f bc/greet
+   49  git clone https://github.com/cprakash2118/repo01
+   50  ll
+   51  cd repo01/
+   52  pwd
+   53  ll
+   54  git status 
+   55  python3 -m json.tool package.json
+   56  vim package.json 
+   57  git status 
+   58  git add package.json 
+   59  git status 
+   60  git commit -m "Q1 updated repo"
+   61  git push 
+   62  oc get pods
+   63  oc start-build greet 
+   64  oc get pods
+   65  oc logs -f bc/greet
+   66  oc edit bc 
+   67  oc start-build greet 
+   68  oc logs -f bc/greet
+   69  oc get pods 
+   70  oc get svc 
+   71  oc get rs
+   72  oc get deploy
+   73  oc get is
+   74  oc get route 
+   75  oc create route edge myroute --service=greet --insecure-policy=Allow --hostname=greet-demo.apps.ocp4.example.com
+   76  oc get route 
+   77  oc describe svc 
+   78  oc edit svc 
+   79  oc describe svc 
+   80  oc edit svc 
+   81  oc describe svc 
+   82  oc get network -o yaml 
+   83  oc version 
+   84  oc new-project demo10
+   85  oc get all
+   86  oc get pods
+   87  cd ..
+   88  oc new-project ex288-q3
+   89  oc get is -n openshift | grep httpd
+   90  oc new-app --name greeting httpd:latest~https://github.com/cprakash2118/repo02
+   91  oc get pods 
+   92  oc logs -f bc/greeting 
+   93  oc get pods
+   94  oc get deploy
+   95  oc get rs
+   96  oc get bc 
+   97  oc expose service greeting 
+   98  oc get route 
+   99  oc create cm cm-name --from-literal MY_NAME-IS=cp MY-LOCATION=blr
+  100  oc create cm cm-name --from-literal MY_NAME-IS=cp --from-literal MY-LOCATION=blr
+  101  oc extract cm/cm-name --to=-
+  102  ll
+  103  cd repo01/
+  104  history > history.txt
